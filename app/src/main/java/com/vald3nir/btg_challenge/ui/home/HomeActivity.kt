@@ -3,8 +3,6 @@ package com.vald3nir.btg_challenge.ui.home
 import android.content.Intent
 import android.os.Bundle
 import androidx.core.widget.doOnTextChanged
-import androidx.databinding.DataBindingUtil
-import com.vald3nir.btg_challenge.R
 import com.vald3nir.btg_challenge.core.base.BaseActivity
 import com.vald3nir.btg_challenge.databinding.ActivityHomeBinding
 import com.vald3nir.btg_challenge.extensions.animateRotate90Degrees
@@ -23,17 +21,15 @@ class HomeActivity : BaseActivity() {
         }
     }
 
-    private var activityBinding: ActivityHomeBinding? = null
+    private lateinit var activityBinding: ActivityHomeBinding
     private val viewModel by viewModel<HomeViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
-
-        activityBinding = DataBindingUtil.setContentView(this, R.layout.activity_home)
+        activityBinding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(activityBinding.root)
 
         initObservers()
-
         viewModel.initCurrencies()
     }
 
@@ -54,7 +50,7 @@ class HomeActivity : BaseActivity() {
         }
 
         viewModel.loadCurrenciesFinished.observe(this, {
-            activityBinding?.model = viewModel
+            activityBinding.model = viewModel
             viewModel.calculateConversion()
         })
 
