@@ -4,7 +4,6 @@ import com.vald3nir.data.database.model.Currency
 import com.vald3nir.data.database.model.Exchange
 import java.util.*
 
-
 fun Map<String, String>?.toCurrencyList(): ArrayList<Currency> {
     val arrayList = arrayListOf<Currency>()
     this?.map { arrayList.add(Currency(code = it.key, country = it.value)) }

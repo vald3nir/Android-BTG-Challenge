@@ -21,7 +21,7 @@ class DatabaseHandler(context: Context) {
     private val exchangeDao: ExchangeDao = db.ExchangeDao()
     private val currencyDao: CurrencyDao = db.CurrencyDao()
     private val flagDao: FlagDao = db.FlagDao()
-    private val currencyWithFlagDao: CurrencyViewDao = db.CurrencyWithFlagDao()
+    private val currencyViewDao: CurrencyViewDao = db.currencyViewDao()
 
     fun listAllExchanges(): List<Exchange>? {
         return exchangeDao.getAll()
@@ -32,20 +32,16 @@ class DatabaseHandler(context: Context) {
         exchangeDao.insertAll(list)
     }
 
-    fun getExchange(quote: String?): Exchange? {
-        return exchangeDao.loadByQuote(quote)
-    }
-
     fun listAllCurrencies(): List<Currency>? {
         return currencyDao.getAll()
     }
 
     fun listAllCurrenciesWithFlag(): List<CurrencyView>? {
-        return currencyWithFlagDao.listAll()
+        return currencyViewDao.listAll()
     }
 
     fun getCurrencyWithFlag(code: String?): CurrencyView? {
-        return currencyWithFlagDao.get(code)
+        return currencyViewDao.get(code)
     }
 
     fun updateCurrencies(list: List<Currency>?) {
@@ -55,10 +51,6 @@ class DatabaseHandler(context: Context) {
 
     fun listAllFlag(): List<Flag>? {
         return flagDao.getAll()
-    }
-
-    fun getFlagFromID(code: String): Flag? {
-        return flagDao.loadById(code)
     }
 
     fun close() {

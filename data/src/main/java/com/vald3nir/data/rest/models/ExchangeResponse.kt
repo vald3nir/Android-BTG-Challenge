@@ -1,7 +1,6 @@
 package com.vald3nir.data.rest.models
 
 import com.google.gson.annotations.SerializedName
-import com.vald3nir.data.database.model.Exchange
 
 data class ExchangeResponse(
     @SerializedName("success") val success: Boolean?,

@@ -12,7 +12,6 @@ import com.vald3nir.btg_challenge.ui.currencies.CurrenciesFragmentDialog
 import kotlinx.android.synthetic.main.activity_home.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
 class HomeActivity : BaseActivity() {
 
     companion object {

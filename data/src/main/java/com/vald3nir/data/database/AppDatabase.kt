@@ -10,7 +10,6 @@ import com.vald3nir.data.database.model.Currency
 import com.vald3nir.data.database.model.Exchange
 import com.vald3nir.data.database.model.Flag
 
-
 @Database(
     entities = [Currency::class, Exchange::class, Flag::class],
     version = 1, exportSchema = false
@@ -18,6 +17,6 @@ import com.vald3nir.data.database.model.Flag
 abstract class AppDatabase : RoomDatabase() {
     abstract fun FlagDao(): FlagDao
     abstract fun CurrencyDao(): CurrencyDao
-    abstract fun CurrencyWithFlagDao(): CurrencyViewDao
+    abstract fun currencyViewDao(): CurrencyViewDao
     abstract fun ExchangeDao(): ExchangeDao
 }

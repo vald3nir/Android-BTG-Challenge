@@ -1,5 +1,6 @@
 package com.vald3nir.data.rest
 
+import com.vald3nir.data.BuildConfig
 import com.vald3nir.data.database.model.Currency
 import com.vald3nir.data.database.model.Exchange
 import com.vald3nir.data.exceptions.RequestHttpException
@@ -11,7 +12,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
-
 
 class RestClient {
 
@@ -27,7 +27,7 @@ class RestClient {
                 val originalRequest = chain.request()
                 val newUrlBuilder = originalRequest.url.newBuilder()
                 val newUrl = newUrlBuilder.addQueryParameter(
-                    "access_key", "f402c510eb7e91eb05707bc0bceb94a2"
+                    "access_key", BuildConfig.CURRENCY_LAYER_API_KEY
                 ).build()
                 val newRequest = originalRequest.newBuilder().url(newUrl).build()
                 chain.proceed(newRequest)
