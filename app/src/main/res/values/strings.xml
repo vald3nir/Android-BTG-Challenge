@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Money Converter</string>
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="loading">Loading</string>
+    <string name="select_a_currency">Select a currency</string>
+    <string name="search_for_a_currency">Search for a currency</string>
+    <string name="no_currency_to_show">No currency to show</string>
+    <string name="flag_image_view">flag image</string>
+    <string name="input_value">Input value</string>
+    <string name="change_currencies">Change currencies</string>
+    <string name="input_currency">Input Currency</string>
+    <string name="output_currency">Output Currency</string>
+    <string name="value_converted">Value Converted</string>
+</resources>
